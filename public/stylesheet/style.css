@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    /*box-sizing: border-box;*/
+}
+.forms{
+    width: 100%;
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    width: 300px;
+    padding: 32px;
+    border-radius:15px;
+    box-shadow: 0 5px 16px #ccc;
+    font-family: sans-serif;
+    letter-spacing:1px;
+}
+.form-input,
+.form-button{
+    font-family: sans-serif;
+    letter-spacing:1px;
+    font-size:16px;
+}
+.form-title{
+    text-align:center;
+    margin: 0 0 32px 0;
+    font-weight:normal;
+}
+.form-group{
+    position: relative;
+    margin-bottom: 32px;
+}
+.form-label{
+    position: absolute;
+    top:0;
+    z-index: -1;
+    color:#9e9e9e;
+    transition:0.3s;
+}
+.form-input{
+    border:none;
+    border-bottom:1px solid #e0e0e0;
+    width: 100%;
+    padding: 0 0 10px 0;
+    background-color: transparent;
+    outline:none;
+    transitoin:0.3s;
+}
+.form-input:focus {
+    border-bottom:1px solid #1a73a8;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+.login-button, .switch-button{
+    padding: 10px 20px;
+    border:none;
+    border-radius:5px;
+    color:#fff;
+    background-color: #0071f0;
+    outline: none;
+    cursor: pointer;
+    transition:0.3s;
+}
+.login-button:hover, .switch-button:hover{
+    background-color: rgba(0,113,240, 0.7);
+}
+.secondary:hover{
+    background: #efefef;
+}
+.secondary{
+    color: rgb(255,188,109);
+    border: 1px solid rgb(255,188,109);
+    background: #fff;
+}
+.form-input:focus ~ .form-label,
+.form-input:not(:placeholder-shown) ~ .form-label{
+    top:-18px;
+    font-size:12px;
+    color:#e0e0e0
+}
+.register{
+    display: none;
+}
+.error{
+    padding: 7px;
+    margin-bottom: 20px;
+    border: 1px dotted red;
+    background:  rgba(255,29,0,0.51);
+    color: red;
+}
+.success{
+    padding: 7px;
+    margin-bottom: 20px;
+    border: 1px dotted lightgreen;
+    background:  greenyellow;
+    color: green;
+}
+.error-inputs{
+    border-bottom: 1px solid rgba(255,29,0,0.51);
+}
+.error-login-button{
+    opacity: .5;
+    pointer-events: none;
+}

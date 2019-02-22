@@ -1,0 +1,13 @@
+<% include layout/header.ejs %>
+
+    <% if(!user.id && !user.login) {%>
+
+        <% include layout/input.ejs %>
+
+    <% } else {%>
+
+        <% include layout/user.ejs %>
+
+    <% } %>
+
+<% include layout/footer.ejs %>
