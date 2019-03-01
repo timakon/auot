@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt-nodejs');
 const models = require('../models');
 
 router.post('/register', (req, res) => {
-    const login = req.body.login;
+    const login = req.body.login.toLowerCase();
     const password = req.body.password;
     const passwordConfirm = req.body.passwordConfirm;
 
@@ -18,10 +18,10 @@ router.post('/register', (req, res) => {
             error: 'Все поля должны быть заполнены!',
             fields
         });
-    } else if(!/^[a-zA-Z0-9]+$/.test(login)){
+    } else if(!/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/.test(login)){
         res.json({
             ok: false,
-            error: 'Только латинские буквы и цифры',
+            error: 'Некоректный e-mail',
             fields:['login']
         });
     } else if(login.length < 3 || login.length > 20){
@@ -78,7 +78,7 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-    const login = req.body.login;
+    const login = req.body.login.toLowerCase();
     const password = req.body.password;
 
     if(!login || !password){
@@ -109,8 +109,8 @@ router.post('/login', (req, res) => {
                             fields: ['login', 'password']
                         });
                     } else {
-                        req.session.userId = user.id;
-                        req.session.userLogin = user.login;
+                         req.session.userId = user.id;
+                         req.session.userLogin = user.login;
                         res.json({
                             ok:true
                         });

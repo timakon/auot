@@ -81,7 +81,9 @@ $(function () {
                 }
             } else {
                 //$('.login h4').after('<p class = "success">Отчлично</p>');
-                $(location).attr('href', '/');
+                //console.log(userId)
+                $(location).attr('href', `/`);
+
             }
         })
     });
