@@ -45,9 +45,30 @@ app.use('/javascripts', express.static(path.join(__dirname, 'node_modules', 'jqu
 
 // routers
 app.get('/', (req, res) =>{
+    res.render('landing')
+});
+app.get('/user', (req, res) =>{
     const id = req.session.userId;
     const login = req.session.userLogin;
-    res.render('index',{
+    if(id){
+        res.render('user',{
+            user:{
+                id,
+                login
+            }
+        })
+    }else{
+        res.render('error', {
+            message: error.message,
+            error: !debuger ? error : {}
+        });
+    }
+});
+
+app.get('/auth', (req, res) =>{
+    const id = req.session.userId;
+    const login = req.session.userLogin;
+    res.render('input',{
         user:{
             id,
             login
@@ -55,7 +76,8 @@ app.get('/', (req, res) =>{
     })
 });
 
-app.use('/api/auth', routes.auth)
+app.use('/auth', routes.auth)
+app.use('/landing', routes.landing)
 
  //catch 404 page
 app.use((req, res, next) => {

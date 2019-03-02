@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><%= user.login%></title>
+    <title><%= user.login%> <%= user.id%> </title>
 </head>
 <body>
 <h1>Привет, <%= user.login%></h1>
-<a href="/api/auth/logout">Выход</a>
+<a href="/auth/logout">Выход</a>
 
 <textarea name="" id="" cols="30" rows="10"> </textarea>
-</body>
-</html>
+
+<% include layout/footer.ejs %>

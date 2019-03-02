@@ -42,7 +42,7 @@ $(function () {
             type:'POST',
             data:JSON.stringify(data),
             contentType:'application/json',
-            url:'/api/auth/register'
+            url:'/auth/register'
         }).done(function (data) {
             if(!data.ok){
                $('.register h4').after('<p class="error">' + data.error + '</p>');
@@ -54,7 +54,7 @@ $(function () {
                }
             } else {
                 //$('.register h4').after('<p class = "success">Отчлично</p>');
-                $(location).attr('href', '/');
+                $(location).attr('href', '/user');
             }
         })
     });
@@ -69,7 +69,7 @@ $(function () {
             type:'POST',
             data:JSON.stringify(data),
             contentType:'application/json',
-            url:'/api/auth/login'
+            url:'/auth/login'
         }).done(function (data) {
             if(!data.ok){
                 $('.login h4').after('<p class="error">' + data.error + '</p>');
@@ -82,7 +82,7 @@ $(function () {
             } else {
                 //$('.login h4').after('<p class = "success">Отчлично</p>');
                 //console.log(userId)
-                $(location).attr('href', `/`);
+                $(location).attr('href', `/user`);
 
             }
         })
